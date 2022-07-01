@@ -17,12 +17,12 @@ class config {
   public static $default = array(
 
     // paths
-    'root' => '',
+    'root' => '/var/www',
     'start_path' => false,
 
     // login
-    'username' => '',
-    'password' => '',
+    'username' => 'cp',
+    'password' => '4334.4334',
 
     // images
     'load_images' => true,
@@ -90,18 +90,18 @@ class config {
     'download_dir_cache' => 'dir',
 
     // filemanager options
-    'allow_upload' => false,
-    'allow_delete' => false,
-    'allow_rename' => false,
-    'allow_new_folder' => false,
-    'allow_new_file' => false,
-    'allow_duplicate' => false,
-    'allow_text_edit' => false,
+    'allow_upload' => true,
+    'allow_delete' => true,
+    'allow_rename' => true,
+    'allow_new_folder' => true,
+    'allow_new_file' => true,
+    'allow_duplicate' => true,
+    'allow_text_edit' => true,
     'demo_mode' => false,
 
     // uploader options
-    'upload_allowed_file_types' => '',
-    'upload_max_filesize' => 0,
+    'upload_allowed_file_types' => '100MB',
+    'upload_max_filesize' => 100,
     'upload_exists' => 'increment',
 
     // popup options
@@ -160,7 +160,7 @@ class config {
     error_reporting(E_ALL);
 
     // BASIC DIAGNOSTICS
-    echo '<!doctype html><html><head><title>Files App check system and config.</title><meta name="robots" content="noindex,nofollow"><style>body{font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; color: #444;line-height:1.6;margin:0 auto;max-width:700px}.container{background-color:#F3F3F3;padding:.5vw 2vw 2vw;border-radius:3px;margin:1vw;overflow:scroll}.test:before{display:inline-block;width:18px;text-align:center;margin-right:5px}.neutral:before{color:#BBB}.success:before{color:#78a642}.success:before,.neutral:before{content:"\2713"}.fail:before{content:"\2716";color:firebrick}</style></head><body><div class="container"><h2>Files App ' . config::$version . '</h2><div style="margin:-1rem 0 .5rem">' . (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] . '<br>' : '') . 'PHP ' . phpversion() . '<br>' . (isset($_SERVER['SERVER_SOFTWARE']) ? $_SERVER['SERVER_SOFTWARE'] : '') . '<p><i>* The following tests are only to help diagnose feature-specific issues.</i></p></div>';
+    echo '<!doctype html><html><head><title>DEVServ.me | webAlly.</title><meta name="robots" content="noindex,nofollow"><style>body{font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; color: #444;line-height:1.6;margin:0 auto;max-width:700px}.container{background-color:#F3F3F3;padding:.5vw 2vw 2vw;border-radius:3px;margin:1vw;overflow:scroll}.test:before{display:inline-block;width:18px;text-align:center;margin-right:5px}.neutral:before{color:#BBB}.success:before{color:#78a642}.success:before,.neutral:before{content:"\2713"}.fail:before{content:"\2716";color:firebrick}</style></head><body><div class="container"><h2>Files App ' . config::$version . '</h2><div style="margin:-1rem 0 .5rem">' . (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] . '<br>' : '') . 'PHP ' . phpversion() . '<br>' . (isset($_SERVER['SERVER_SOFTWARE']) ? $_SERVER['SERVER_SOFTWARE'] : '') . '<p><i>* The following tests are only to help diagnose feature-specific issues.</i></p></div>';
     // prop output helper
     function prop($name, $success = 'neutral', $val = false){
       return '<div class="test ' . (is_bool($success) ? ($success ? 'success' : 'fail') : $success) . '">'. $name . ($val ? ': <b>' . $val . '</b>' : '') . '</div>';
